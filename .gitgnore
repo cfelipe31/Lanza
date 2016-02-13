@@ -5,5 +5,5 @@
 *.swp
 
 #No idea why those exist
-*.n*
+*.nfs*
 
