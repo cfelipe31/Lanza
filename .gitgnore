@@ -1,0 +1,9 @@
+#Object files
+*.o
+
+#Vim swap files
+*.swp
+
+#No idea why those exist
+*.n*
+
