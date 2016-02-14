@@ -13,9 +13,12 @@
 #ifndef GU_ERRORS_H 
 #define GU_ERRORS_H "@(#)guErrors.h $Revision$"
 
+#include "guTypes.h"
+
 typedef enum {guOk, guNullPointer, guZeroValue, guMaxMinInvalid, 
               guSmallString, guBigString, guInvalidString,
-              guTooManyDots} guErrorType;
+              guTooManyDots, guTooManyAmpersands,guZeroLength,
+              guNoSurname} guErrorType;
 
 char *
 GuGetCliErrorMessage (guErrorType, guLanguageType);

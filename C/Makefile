@@ -16,12 +16,14 @@ LD = gcc
 CFLAGS = -Wall
 LFLAGS = -Wall
 
+CGILIB = libmlcgi.a.FreeBSD.7.x
+
 GUCGIMAINOBJS = guCgiMain.o guUserInterface.o guFunctions.o
 GUCGISHOWWEBHELPOBJS = guCgiShowWebHelp.o guUserInterface.o guFunctions.o
 GUCGISHOWLICENSEOBJS = guCgiShowLicense.o guUserInterface.o guFunctions.o
 GUCGISHOWREQUESTREGOBJS = guCgiShowRequestRegistrationForm.c guUserInterface.o guFunctions.o
 GUCGISHOWREQUESTPWOBJS = guCgiShowRequestPasswordReset.c guUserInterface.o guFunctions.o
-GUOBJS = gu.o guFunctions.o
+GUOBJS = gu.o guFunctions.o guAddUser.o
 
 EXECS = guMain.cgi\
         guShowLicense.cgi\
@@ -35,19 +37,19 @@ EXECS = guMain.cgi\
 	$(CC) $(CFLAGS) -c $<
 
 guMain.cgi:  $(GUCGIMAINOBJS)
-	$(LD) $(LFLAGS) -o $@ $(GUCGIMAINOBJS) ./Libraries/libmlcgi.a.FreeBSD.7.x
+	$(LD) $(LFLAGS) -o $@ $(GUCGIMAINOBJS) $(CGILIB)
 
 guShowLicense.cgi:  $(GUCGISHOWLICENSEOBJS)
-	$(LD) $(LFLAGS) -o $@ $(GUCGISHOWLICENSEOBJS) ./Libraries/libmlcgi.a.FreeBSD.7.x
+	$(LD) $(LFLAGS) -o $@ $(GUCGISHOWLICENSEOBJS) $(CGILIB)
 
 guShowWebHelp.cgi:  $(GUCGISHOWWEBHELPOBJS)
-	$(LD) $(LFLAGS) -o $@ $(GUCGISHOWWEBHELPOBJS) ./Libraries/libmlcgi.a.FreeBSD.7.x
+	$(LD) $(LFLAGS) -o $@ $(GUCGISHOWWEBHELPOBJS) $(CGILIB)
 
 guShowRequestRegistrationForm.cgi:  $(GUCGISHOWREQUESTREGOBJS)
-	$(LD) $(LFLAGS) -o $@ $(GUCGISHOWREQUESTREGOBJS) ./Libraries/libmlcgi.a.FreeBSD.7.x
+	$(LD) $(LFLAGS) -o $@ $(GUCGISHOWREQUESTREGOBJS) $(CGILIB)
 
 guShowRequestPasswordReset.cgi:  $(GUCGISHOWREQUESTPWOBJS)
-	$(LD) $(LFLAGS) -o $@ $(GUCGISHOWREQUESTPWOBJS) ./Libraries/libmlcgi.a.FreeBSD.7.x
+	$(LD) $(LFLAGS) -o $@ $(GUCGISHOWREQUESTPWOBJS) $(CGILIB)
 
 gu:  $(GUOBJS)	
 	$(LD) $(LFLAGS) -o $@ $(GUOBJS)

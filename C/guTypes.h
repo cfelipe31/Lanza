@@ -16,18 +16,20 @@
 #include "guConst.h"
 
 
-typedef enum {guEnglish, guPortuguese, guNumberLanguages} guLanguageType;
+typedef enum {guDes, guMd5, guSha256, guSha512} guCryptAlgorithms;
 
-typedef unsigned long long guUserIdentifierType;
+typedef enum {guEnglish, guPortuguese, guNumberLanguages} guLanguageType;
 
 typedef enum {guZero, guAdmin, guDriver, guThree, guPassenger} guGroupType;
 
 typedef enum {guAdminnProfile} guProfileType;
 
-struct guUserDataType{
+typedef unsigned long long guUserIdentifierType;
+
+typedef struct{
 
   guUserIdentifierType id;
-  guProfileType profile;
+  guGroupType groupIdentifier;
   
   char name[GU_MAX_NAME_LENGTH];
   char nickname[GU_MAX_NICKNAME_LENGTH];
@@ -41,7 +43,7 @@ struct guUserDataType{
   struct guUserDataType *next;
   struct guUserDataType *prev;
 
-}; 
+}guUserDataType; 
 
 #endif /* #ifndef GU_TYPES_H */
 

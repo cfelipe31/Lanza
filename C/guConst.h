@@ -17,13 +17,25 @@
 #define GU_MAX_EMAIL_LENGTH  						256 
 #endif /* #ifndef GU_MAX_EMAIL_LENGTH */
 
+#ifndef GU_MIN_EMAIL_LENGTH
+#define GU_MIN_EMAIL_LENGTH  						3 
+#endif /* #ifndef GU_MIN_EMAIL_LENGTH */
+
 #ifndef GU_MAX_NAME_LENGTH
 #define GU_MAX_NAME_LENGTH              			256 
 #endif /* #ifndef GU_MAX_NAME_LENGTH */
 
+#ifndef GU_MIN_NAME_LENGTH
+#define GU_MIN_NAME_LENGTH              			5 
+#endif /* #ifndef GU_MIN_NAME_LENGTH */
+
 #ifndef GU_MAX_NICKNAME_LENGTH
 #define GU_MAX_NICKNAME_LENGTH  					64 
 #endif /* #ifndef GU_MAX_NICKNAME_LENGTH */
+
+#ifndef GU_MIN_NICKNAME_LENGTH
+#define GU_MIN_NICKNAME_LENGTH  					5 
+#endif /* #ifndef GU_MIN_NICKNAME_LENGTH */
 
 #ifndef GU_MAX_USERNAME_LENGTH
 #define GU_MAX_USERNAME_LENGTH         				64 
