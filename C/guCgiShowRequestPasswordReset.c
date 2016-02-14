@@ -74,10 +74,10 @@ main (int argc, char **argv)
               " action=\"guRequestPasswordReset.cgi\">\n");
   printf ("      Username:<br/> \n");
   printf ("      <input name=\"guNickname\" type=\"text\""
-                "maxlength=\"%s\"/>\n",GU_MAX_NICKNAME_LENGTH);
+                "maxlength=\"%u\"/>\n",GU_MAX_NICKNAME_LENGTH);
   printf ("      <br/> Email:<br/>\n");
   printf ("      <input name=\"guEmail\""
-                "type=\"text\" maxlength=\"%s\"/><br><br>\n",
+                "type=\"text\" maxlength=\"%u\"/><br><br>\n",
                  GU_MAX_EMAIL_LENGTH);
   printf ("      <input type=\"submit\" value=\"Reset Password\">");
   printf ("      <input type=\"hidden\" name=\"guLanguage\""

@@ -13,12 +13,14 @@
 #include "guTypes.h"
 
 //[lingua][numerodemenssagens]
-static char *guCliErrorMessages[2][2] = {
+static char *guCliErrorMessages[3][3] = {
                                           {"Program successfully executed.",
-                                           "Error: reference to NULL pointer."
+                                           "Error: reference to NULL pointer.",
+                                           "Error: argument cannot be zero"
                                           },
                                           {"Programa executado com sucesso.",
-                                           "Erro: referencia para ponteiro nulo"
+                                           "Erro: referencia para ponteiro nulo",
+                                           "Erro: argumento deve possuir um valor nao nulo"
                                           }
                                         };
 

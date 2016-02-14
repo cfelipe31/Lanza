@@ -74,11 +74,11 @@ main (int argc, char **argv)
               " action=\"%s\">\n",GU_REGISTRATION_URL);
   printf ("      Email:<br/> \n");
   printf ("      <input name=\"guEmail\" type=\"text\""
-                "maxlength=\"%s\"/>\n",GU_MAX_EMAIL_LENGTH);
+                "maxlength=\"%u\"/>\n",GU_MAX_EMAIL_LENGTH);
   printf ("      <br/> %s Email:<br/>\n",
                  GuGetWebUserInterfaceMessage(guConfirmMessage,language));
   printf ("      <input name=\"guEmailConfirmation\""
-                "type=\"text\" maxlength=\"%s\"/><br><br>\n",
+                "type=\"text\" maxlength=\"%u\"/><br><br>\n",
                  GU_MAX_EMAIL_LENGTH);
   printf ("      <input type=\"submit\" value=\"%s\">",
                  GuGetWebUserInterfaceMessage(guRequestMessage,language));

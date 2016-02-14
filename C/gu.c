@@ -114,7 +114,9 @@ main (int argc, char **argv)
 	        optind++;
 	      }
         userId = getuid();
-        printf("User id: %d \nAdmin id: %llu\n", userId, GU_ADMINISTRATOR_USER_IDENTIFIER);
+        printf("User id: %llu \n", userId);
+        printf("Admin id: %d \n", GU_ADMINISTRATOR_USER_IDENTIFIER);  
+              
         if (userId == GU_ADMINISTRATOR_USER_IDENTIFIER)
         {
           printf ("Current user is admin!\n");

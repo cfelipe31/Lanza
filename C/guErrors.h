@@ -13,7 +13,9 @@
 #ifndef GU_ERRORS_H 
 #define GU_ERRORS_H "@(#)guErrors.h $Revision$"
 
-typedef enum {ok, nullPointer} guErrorType;
+typedef enum {guOk, guNullPointer, guZeroValue, guMaxMinInvalid, 
+              guSmallString, guBigString, guInvalidString,
+              guTooManyDots} guErrorType;
 
 char *
 GuGetCliErrorMessage (guErrorType, guLanguageType);
