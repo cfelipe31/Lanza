@@ -1,6 +1,9 @@
 #Object files
 *.o
 
+#Cgi files
+*.cgi
+
 #Vim swap files
 *.swp
 

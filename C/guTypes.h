@@ -20,18 +20,21 @@ typedef enum {guEnglish, guPortuguese, guNumberLanguages} guLanguageType;
 
 typedef unsigned long long guUserIdentifierType;
 
-typedef enum {guZero, guAdmin, guDriver, guThree, guPassager} guGroupType;
+typedef enum {guZero, guAdmin, guDriver, guThree, guPassenger} guGroupType;
 
 typedef enum {guAdminnProfile} guProfileType;
 
 struct guUserDataType{
 
   guUserIdentifierType id;
+  guProfileType profile;
+  
+  char name[GU_MAX_NAME_LENGTH];
   char nickname[GU_MAX_NICKNAME_LENGTH];
+  
   char password[GU_MAX_PASSWORD_LENGTH];
   char passwordCheck[GU_MAX_PASSWORD_LENGTH];
-  guProfileType profile;
-  char name[GU_MAX_NAME_LENGTH];
+  
   char email[GU_MAX_EMAIL_LENGTH];
   char emailCheck[GU_MAX_EMAIL_LENGTH];
 
