@@ -249,24 +249,6 @@ guErrorType guCreateNickname (char *name, char *firstNickname, char *secondNickn
   return guOk;
 }
 
-guErrorType guCreateStringFromUserData (char *dataString, guUserDataType *userDataStruct)
-{
-  /*ID:Nickname:CryptedPass:Group:UseName:Email*/
-  
-  if (!dataString)
-    return guNullPointer;
-    
-  if (!userDataStruct)
-    return guNullPointer;
-  
-  sprintf(dataString, "%llu:%s:%s:%u:%s:%s", 
-          (unsigned long long) userDataStruct->id, userDataStruct->nickname, 
-          userDataStruct->password,(unsigned) userDataStruct->groupIdentifier, 
-          userDataStruct->name, userDataStruct->email);
-    
-  return guOk;
-}
-
 guLanguageType
 GuGetLanguageIndex(char * language)
 {

@@ -20,18 +20,18 @@ typedef enum {guDes, guMd5, guSha256, guSha512} guCryptAlgorithms;
 
 typedef enum {guEnglish, guPortuguese, guNumberLanguages} guLanguageType;
 
-typedef enum {guZero, guAdmin, guDriver, guThree, guPassenger} guGroupType;
+typedef enum {guAdmin, guOwner, guHitchhiker} guGroupType;
 
-typedef enum {guAdminnProfile} guProfileType;
+typedef enum {guAdminProfile} guProfileType;
 
 typedef unsigned long long guUserIdentifierType;
 
 typedef struct{
 
   guUserIdentifierType id;
-  guGroupType groupIdentifier;
+  guProfileType profile;
   
-  char name[GU_MAX_NAME_LENGTH];
+  char username[GU_MAX_USERNAME_LENGTH];
   char nickname[GU_MAX_NICKNAME_LENGTH];
   
   char password[GU_MAX_PASSWORD_LENGTH];

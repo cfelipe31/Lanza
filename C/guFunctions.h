@@ -34,9 +34,6 @@ guCreateNickname (char *, char *, char *);
 guErrorType 
 guCreateRandomString (char *, unsigned long, char *);
 
-guErrorType 
-guCreateStringFromUserData (char *, guUserDataType *);
-
 guLanguageType 
 GuGetLanguageIndex(char *);
 
