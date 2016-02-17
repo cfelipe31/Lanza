@@ -10,6 +10,9 @@
  *$Log$
  */
 
+
+ #define GU_DEBUG
+
 /*sprintf*/
 #include <stdio.h>
 /*srand, rand*/
@@ -168,9 +171,11 @@ guCheckStringField (char *validatedString, char *validChars,
 guErrorType 
 guCreateRandomString (char *validChar, unsigned long stringLength, char *generatedString)
 {
+
   /*Checking passed Data*/
   if (!validChar)
     return guNullPointer;
+
 
   if (!stringLength)
     return guZeroValue;
@@ -181,7 +186,7 @@ guCreateRandomString (char *validChar, unsigned long stringLength, char *generat
   if (!strlen(validChar))
     return guZeroLength;
 
-  srand( time(NULL) );
+  srand(time(NULL));
 
   /*Generating the string backwards*/
   generatedString[stringLength] = '\0';
@@ -198,10 +203,10 @@ guErrorType guCreateNickname (char *name, char *firstNickname, char *secondNickn
 {
 
   char *auxName;
-  char auxCompleteName[GU_MAX_NAME_LENGTH];
-  char firstName[GU_MAX_NAME_LENGTH];
-  char lastName[GU_MAX_NAME_LENGTH];
-  char middleName[GU_MAX_NAME_LENGTH];
+  char auxCompleteName[GU_MAX_USERNAME_LENGTH];
+  char firstName[GU_MAX_USERNAME_LENGTH];
+  char lastName[GU_MAX_USERNAME_LENGTH];
+  char middleName[GU_MAX_USERNAME_LENGTH];
 
 
   if (!name)
@@ -249,11 +254,19 @@ guErrorType guCreateNickname (char *name, char *firstNickname, char *secondNickn
   return guOk;
 }
 
+
+guErrorType
+GUGetCryptAlgorithm (char *password, guCryptAlgorithms *algorithm)
+{
+
+  return guOk;
+}
+
 guLanguageType
 GuGetLanguageIndex(char * language)
 {
   if(!language)
-    return guNullPointer;
+    return guEnglish;
 
   if(strcmp(language, "portuguese") == 0)
   {

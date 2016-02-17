@@ -62,7 +62,7 @@ main (int argc, char **argv)
   char *options, *optionValue;
 
   /*Language : all functions*/
-  char languageString[GU_MAX_NAME_LENGTH];
+  char languageString[GU_MAX_USERNAME_LENGTH];
 
   /*Return code : all functions*/
   guErrorType returnValue;
@@ -71,7 +71,7 @@ main (int argc, char **argv)
   char nicknameString[GU_MAX_NICKNAME_LENGTH];
 
   /*Username and email : Configure*/
-  char usernameString[GU_MAX_NAME_LENGTH];
+  char usernameString[GU_MAX_USERNAME_LENGTH];
   char emailString[GU_MAX_EMAIL_LENGTH];
 
   /*User ID*/

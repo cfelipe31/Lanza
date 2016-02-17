@@ -34,6 +34,9 @@ guCreateNickname (char *, char *, char *);
 guErrorType 
 guCreateRandomString (char *, unsigned long, char *);
 
+guErrorType
+GUGetCryptAlgorithm (char *, guCryptAlgorithms *);
+
 guLanguageType 
 GuGetLanguageIndex(char *);
 

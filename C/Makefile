@@ -24,13 +24,15 @@ GUCGISHOWLICENSEOBJS = guCgiShowLicense.o guUserInterface.o guFunctions.o
 GUCGISHOWREQUESTREGOBJS = guCgiShowRequestRegistrationForm.c guUserInterface.o guFunctions.o
 GUCGISHOWREQUESTPWOBJS = guCgiShowRequestPasswordReset.c guUserInterface.o guFunctions.o
 GUOBJS = gu.o guFunctions.o guAddUser.o
+GUUNITTESTSOBJS = guUnitTests.o guFunctions.o
 
 EXECS = guMain.cgi\
         guShowLicense.cgi\
         guShowWebHelp.cgi\
-	guShowRequestRegistrationForm.cgi\
-	guShowRequestPasswordReset.cgi\
-	gu\
+		guShowRequestRegistrationForm.cgi\
+		guShowRequestPasswordReset.cgi\
+		gu\
+		guUnitTests\
 
 #Regra Implicita
 .c.o: 
@@ -53,6 +55,9 @@ guShowRequestPasswordReset.cgi:  $(GUCGISHOWREQUESTPWOBJS)
 
 gu:  $(GUOBJS)	
 	$(LD) $(LFLAGS) -o $@ $(GUOBJS)
+
+guUnitTests:  $(GUUNITTESTSOBJS)  
+	$(LD) $(LFLAGS) -o $@ $(GUUNITTESTSOBJS)
 
 install: $(EXECS)
 	mkdir -p ../../Data
