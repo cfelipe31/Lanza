@@ -20,22 +20,43 @@
 
 
 guErrorType
-guCheckEmail(char *, char *, size_t, size_t);
+GuCheckEmail(char *, char *, size_t, size_t);
 
 guErrorType
-guCheckNickname(char *, char *, size_t, size_t);
+GuCheckNickname(char *, char *, size_t, size_t);
 
 guErrorType 
-guCheckStringField(char *, char *, size_t, size_t);
+GuCheckStringField(char *, char *, size_t, size_t);
 
 guErrorType
-guCreateNickname (char *, char *, char *);
+GuCreateNickname (char *, char *, char *);
 
 guErrorType 
-guCreateRandomString (char *, unsigned long, char *);
+GuCreateRandomString (char *, unsigned long, char *);
+
+//Crypt password characteristics:
+//all generated passwords belong to the alphabet: ./0-9A-Za-z
+//DES: two character salt from the alphabet ./0-9A-Za-z, i.e. an 12 bit salt
+//generated password has 2 salt characters and more 11 chars (TOTAL 13)
+//MD5: a marker $1$, then 8 more salt characters $1$12345678$
+//result: $1$8c(salt)$(22 chars)
+//SHA-256: a marker $5$ and 16 salt characters :$5$1234567891234567$
+//result: $5$18c(salt)$(43 chars)
+//SHA-512: a marker $6$ and 16 salt characters
+//result: $5$18c(salt)$(86 chars)
+
 
 guErrorType
-GUGetCryptAlgorithm (char *, guCryptAlgorithms *);
+GuEncodePasswordWithSpecificAlgorithm (char *, guCryptAlgorithms , char *);
+
+guErrorType
+GuEncodePasswordWithSpecificSalt (char *, char *, char *);
+
+
+
+guErrorType
+GuGetCryptAlgorithm (char *, guCryptAlgorithms *);
+
 
 guLanguageType 
 GuGetLanguageIndex(char *);

@@ -76,6 +76,9 @@ main (int argc, char **argv)
 
   /*User ID*/
   guUserIdentifierType userId;
+
+  /*Placeholder for user to be added/logged in*/
+  guUserDataType *user;
   
   opterr = 0; /* desabilita exibicao de erro */
 
@@ -125,6 +128,7 @@ main (int argc, char **argv)
         {
           printf ("Sorry, only the program admin can proceed with this operation.\n");
         }
+
 	      break;
 	      /* case 'C'*/
 

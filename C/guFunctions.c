@@ -11,7 +11,8 @@
  */
 
 
- #define GU_DEBUG
+#define GU_DEBUG
+#define _XOPEN_SOURCE   600
 
 /*sprintf*/
 #include <stdio.h>
@@ -27,7 +28,7 @@
 #include "guFunctions.h"
 
 guErrorType 
-guCheckEmail (char *validatedString, char *validChars,
+GuCheckEmail (char *validatedString, char *validChars,
               size_t minLength, size_t maxLength)
 {
   unsigned stringIndex;
@@ -78,7 +79,7 @@ guCheckEmail (char *validatedString, char *validChars,
 
 
 guErrorType 
-guCheckNickname (char *validatedString, char *validChars,
+GuCheckNickname (char *validatedString, char *validChars,
                  size_t minLength, size_t maxLength)
 {
   unsigned stringIndex;
@@ -128,7 +129,7 @@ guCheckNickname (char *validatedString, char *validChars,
 }
 
 guErrorType 
-guCheckStringField (char *validatedString, char *validChars,
+GuCheckStringField (char *validatedString, char *validChars,
                     size_t minLength, size_t maxLength)
 {
   unsigned stringIndex;
@@ -169,7 +170,7 @@ guCheckStringField (char *validatedString, char *validChars,
 }
 
 guErrorType 
-guCreateRandomString (char *validChar, unsigned long stringLength, char *generatedString)
+GuCreateRandomString (char *validChar, unsigned long stringLength, char *generatedString)
 {
 
   /*Checking passed Data*/
@@ -199,7 +200,8 @@ guCreateRandomString (char *validChar, unsigned long stringLength, char *generat
   return guOk;
 }
 
-guErrorType guCreateNickname (char *name, char *firstNickname, char *secondNickname)
+guErrorType 
+GuCreateNickname (char *name, char *firstNickname, char *secondNickname)
 {
 
   char *auxName;
@@ -256,7 +258,80 @@ guErrorType guCreateNickname (char *name, char *firstNickname, char *secondNickn
 
 
 guErrorType
-GUGetCryptAlgorithm (char *password, guCryptAlgorithms *algorithm)
+GuEncodePasswordWithSpecificAlgorithm (char *password, guCryptAlgorithms algorithm, char *encodedPassword)
+{
+  char saltLocal[GU_MAX_SALT_LENGTH +1];
+  char aux[GU_MAX_SALT_LENGTH +1];
+
+  if(!password)
+    return guNullPointer;
+
+  if(!encodedPassword)
+    return guNullPointer;
+
+  switch(algorithm)
+  {
+    case guDes:
+      GuCreateRandomString(GU_VALID_SALT_CHARACTERS, (unsigned) 2, saltLocal);
+      GuEncodePasswordWithSpecificSalt(password, saltLocal, encodedPassword);
+      break;
+
+    case guMd5:
+      GuCreateRandomString(GU_VALID_SALT_CHARACTERS, (unsigned) 8, aux);
+      sprintf(saltLocal, "$1$%s$", aux);
+      GuEncodePasswordWithSpecificSalt(password, saltLocal, encodedPassword);
+      break;
+
+    case guSha256:
+      GuCreateRandomString(GU_VALID_SALT_CHARACTERS, (unsigned) 16, aux);
+      sprintf(saltLocal, "$5$%s$", aux);
+      GuEncodePasswordWithSpecificSalt(password, saltLocal, encodedPassword);
+      break;   
+    
+    case guSha512:
+      GuCreateRandomString(GU_VALID_SALT_CHARACTERS, (unsigned) 16, aux);
+      sprintf(saltLocal, "$6$%s$", aux);
+      GuEncodePasswordWithSpecificSalt(password, saltLocal, encodedPassword);
+      break;
+
+
+    default:
+      return guInvalidCryptAlgorithm;
+
+  }
+
+
+  return guOk;
+}
+
+
+guErrorType
+GuEncodePasswordWithSpecificSalt (char *password, char *salt, char *encodedPassword)
+{
+  char *encodedLocal;
+
+  if(!password)
+    return guNullPointer;
+
+  if(!salt)
+    return guNullPointer;
+
+  if(!encodedPassword)
+    return guNullPointer;
+
+  encodedLocal = crypt(password, salt);
+
+  strcpy(encodedPassword, encodedLocal);
+
+  return guOk;
+}
+
+
+
+
+
+guErrorType
+GuGetCryptAlgorithm (char *password, guCryptAlgorithms *algorithm)
 {
 
   return guOk;

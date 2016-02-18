@@ -18,7 +18,7 @@
 typedef enum {guOk, guNullPointer, guZeroValue, guMaxMinInvalid, 
               guSmallString, guBigString, guInvalidString,
               guTooManyDots, guTooManyAmpersands,guZeroLength,
-              guNoSurname} guErrorType;
+              guNoSurname, guInvalidCryptAlgorithm} guErrorType;
 
 char *
 GuGetCliErrorMessage (guErrorType, guLanguageType);

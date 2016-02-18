@@ -37,17 +37,21 @@
 #define GU_MIN_NICKNAME_LENGTH  					8 
 #endif /* #ifndef GU_MIN_NICKNAME_LENGTH */
 
-#ifndef GU_MAX_USERNAME_LENGTH
-#define GU_MAX_USERNAME_LENGTH         				64 
-#endif /* #ifndef GU_MAX_USERNAME_LENGTH */
-
 #ifndef GU_MAX_PASSWORD_LENGTH
 #define GU_MAX_PASSWORD_LENGTH  					127 
 #endif /* #ifndef GU_MAX_PASSWORD_LENGTH */
 
-#ifndef GU_MAX_PASSWORD_LENGTH
-#define GU_MAX_PASSWORD_LENGTH  					8 
+#ifndef GU_MIN_PASSWORD_LENGTH
+#define GU_MIN_PASSWORD_LENGTH  					8 
 #endif /* #ifndef GU_MIN_PASSWORD_LENGTH */
+
+#ifndef GU_MAX_SALT_LENGTH
+#define GU_MAX_SALT_LENGTH         					22
+#endif /* #ifndef GU_MAX_SALT_LENGTH */
+
+#ifndef GU_MAX_USERNAME_LENGTH
+#define GU_MAX_USERNAME_LENGTH         				64 
+#endif /* #ifndef GU_MAX_USERNAME_LENGTH */
 
 #ifndef GU_VALID_EMAIL_CHARACTERS
 #define GU_VALID_EMAIL_CHARACTERS  					"ABCDEFGHIJLMNPQRSTUVWXYZabcdefghijlmnopqrstuvwxyz0123456789.-_@" 
@@ -60,6 +64,10 @@
 #ifndef GU_VALID_PASSWORD_CHARACTERS
 #define GU_VALID_PASSWORD_CHARACTERS  				"ABCDEFGHIJLMNPQRSTUVWXYZabcdefghijlmnopqrstuvwxyz .-'\"(){}[]!?@#$%%&*/\\+=,;:" 
 #endif /* #ifndef GU_VALID_PASSWORD_CHARACTERS */
+
+#ifndef GU_VALID_SALT_CHARACTERS
+#define GU_VALID_SALT_CHARACTERS					"ABCDEFGHIJLMNPQRSTUVWXYZabcdefghijlmnopqrstuvwxyz0123456789./" 
+#endif /*#ifndef GU_VALID_SALT_CHARACTERS */ 
 
 #ifndef GU_VALID_USERNAME_CHARACTERS
 #define GU_VALID_USERNAME_CHARACTERS  				"abcdefghijlmnopqrstuvwxyz." 

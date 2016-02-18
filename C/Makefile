@@ -14,7 +14,7 @@ CC = gcc
 LD = gcc
 
 CFLAGS = -Wall
-LFLAGS = -Wall
+LFLAGS = -Wall 
 
 CGILIB = libmlcgi.a.FreeBSD.7.x
 
@@ -54,10 +54,10 @@ guShowRequestPasswordReset.cgi:  $(GUCGISHOWREQUESTPWOBJS)
 	$(LD) $(LFLAGS) -o $@ $(GUCGISHOWREQUESTPWOBJS) $(CGILIB)
 
 gu:  $(GUOBJS)	
-	$(LD) $(LFLAGS) -o $@ $(GUOBJS)
+	$(LD) $(LFLAGS) -o $@ $(GUOBJS) -lcrypt
 
 guUnitTests:  $(GUUNITTESTSOBJS)  
-	$(LD) $(LFLAGS) -o $@ $(GUUNITTESTSOBJS)
+	$(LD) $(LFLAGS) -o $@ $(GUUNITTESTSOBJS) -lcrypt
 
 install: $(EXECS)
 	mkdir -p ../../Data
